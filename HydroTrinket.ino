@@ -17,15 +17,17 @@ int DryDwell=3600;  //Amount of time to allow the plants to sit without hydropon
 void setup() {
   pinMode(Valve, OUTPUT);  //Set the valve relay pin as an output.
   pinMode(Pump, OUTPUT);  //Set the pump relay pin as an output.
+  digitalWrite(Pump, HIGH);  //Drive the pump pin high, as the relay is active low.
+  digitalWrite(Valve, HIGH);  //Drive the valve pin high, as the relay is active low.
 }
 
 void loop() {
-  digitalWrite(Pump, HIGH);  //Turn on the pump relay.
+  digitalWrite(Pump, LOW);  //Turn on the pump relay.
   delay(PumpIn*1000);  //Leave the pump relay on for PumpIn*1000 msec.
-  digitalWrite(Pump, LOW);  //Turn off the pump relay.
+  digitalWrite(Pump, HIGH);  //Turn off the pump relay.
   delay(WetDwell*1000);  //Leave the pump relay off for WetDwell*1000 msec.
-  digitalWrite(Valve, HIGH);  //Turn on the valve relay.
+  digitalWrite(Valve, LOW);  //Turn on the valve relay.
   delay(ValveOut*1000);  //Leave the valve relay on for ValveOut*1000 msec.
-  digitalWrite(Valve, LOW);  //Turn off the valve relay.
+  digitalWrite(Valve, HIGH);  //Turn off the valve relay.
   delay(DryDwell*1000);  //Leave the valve relay off for DryDwell*1000 msec.
 }
