@@ -25,9 +25,9 @@ void loop() {
   digitalWrite(Pump, LOW);  //Turn on the pump relay.
   delay(PumpIn*500);  //Leave the pump relay on for PumpIn*1000 msec.
   digitalWrite(Pump, HIGH);  //Turn off the pump relay.
-//  delay(WetDwell*1000);  //Leave the pump relay off for WetDwell*1000 msec.
+  delay(WetDwell*500);  //Leave the pump relay off for WetDwell*1000 msec.
   digitalWrite(Valve, LOW);  //Turn on the valve relay.
   delay(ValveOut*500);  //Leave the valve relay on for ValveOut*1000 msec.
-//  digitalWrite(Valve, HIGH);  //Turn off the valve relay.
-//  delay(DryDwell*1000);  //Leave the valve relay off for DryDwell*1000 msec.
+  digitalWrite(Valve, HIGH);  //Turn off the valve relay.
+  delay(DryDwell*500);  //Leave the valve relay off for DryDwell*1000 msec.
 }
