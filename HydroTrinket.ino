@@ -9,10 +9,10 @@
 int Valve = 1;  //Control the valve relay from pin 1.
 int Pump = 2;  //Control the pump relay from pin 2.
 
-int PumpIn=100;  //Amount of time to fill the tray in seconds.
-int WetDwell=3600;  //Amount of time to allow the hydroponics fluid to dwell in the tray in seconds.
-int ValveOut=100;  //Amount of time to drain the tray into the bucket in seconds.
-int DryDwell=3600;  //Amount of time to allow the plants to sit without hydroponics fluid in seconds.
+double PumpIn=30;  //Amount of time to fill the tray in seconds.
+double WetDwell=3;  //Amount of time to allow the hydroponics fluid to dwell in the tray in seconds.
+double ValveOut=180;  //Amount of time to drain the tray into the bucket in seconds.
+double DryDwell=3;  //Amount of time to allow the plants to sit without hydroponics fluid in seconds.
 
 void setup() {
   pinMode(Valve, OUTPUT);  //Set the valve relay pin as an output.
@@ -23,11 +23,11 @@ void setup() {
 
 void loop() {
   digitalWrite(Pump, LOW);  //Turn on the pump relay.
-  delay(PumpIn*1000);  //Leave the pump relay on for PumpIn*1000 msec.
+  delay(PumpIn*500);  //Leave the pump relay on for PumpIn*1000 msec.
   digitalWrite(Pump, HIGH);  //Turn off the pump relay.
-  delay(WetDwell*1000);  //Leave the pump relay off for WetDwell*1000 msec.
+//  delay(WetDwell*1000);  //Leave the pump relay off for WetDwell*1000 msec.
   digitalWrite(Valve, LOW);  //Turn on the valve relay.
-  delay(ValveOut*1000);  //Leave the valve relay on for ValveOut*1000 msec.
-  digitalWrite(Valve, HIGH);  //Turn off the valve relay.
-  delay(DryDwell*1000);  //Leave the valve relay off for DryDwell*1000 msec.
+  delay(ValveOut*500);  //Leave the valve relay on for ValveOut*1000 msec.
+//  digitalWrite(Valve, HIGH);  //Turn off the valve relay.
+//  delay(DryDwell*1000);  //Leave the valve relay off for DryDwell*1000 msec.
 }
